@@ -22,13 +22,16 @@
         .contentHolder {
             background-color:$dTan;
             color:$dBlue;
+            border: 2px solid $dBlue;
             .rightCol{
-                background-color: $pink;
-                color:$dBlue;
-            }
-            .leftCol{
                 background-color: $lBlue;
                 color:$dBlue;
+                border: 2px solid $dBlue;
+            }
+            .leftCol{
+                background-color: $pink;
+                color:$dBlue;
+                border: 2px solid $dBlue;
             }
         }
 
@@ -60,10 +63,10 @@
         .contentHolder{
             width:70%;
             .rightCol {
-                width:30%;
+                width:70%;
             }
             .leftCol {
-                width:70%;
+                width:30%;
             }
         }
         body {

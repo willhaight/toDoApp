@@ -7,14 +7,17 @@ body {
 .contentHolder {
   background-color: #978d83;
   color: #0B1D51;
+  border: 2px solid #0B1D51;
 }
 .contentHolder .rightCol {
-  background-color: #A1869E;
-  color: #0B1D51;
-}
-.contentHolder .leftCol {
   background-color: #797596;
   color: #0B1D51;
+  border: 2px solid #0B1D51;
+}
+.contentHolder .leftCol {
+  background-color: #A1869E;
+  color: #0B1D51;
+  border: 2px solid #0B1D51;
 }
 
 body {
@@ -53,10 +56,10 @@ body h1, body h2, body h3, body p {
   width: 70%;
 }
 .contentHolder .rightCol {
-  width: 30%;
+  width: 70%;
 }
 .contentHolder .leftCol {
-  width: 70%;
+  width: 30%;
 }
 
 body {
