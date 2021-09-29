@@ -1,6 +1,81 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: #D1C6AD;
+  padding: 0;
+  margin: 0;
+}
+
+.contentHolder {
+  background-color: #978d83;
+  color: #0B1D51;
+}
+.contentHolder .rightCol {
+  background-color: #A1869E;
+  color: #0B1D51;
+}
+.contentHolder .leftCol {
+  background-color: #797596;
+  color: #0B1D51;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body h1, body h2, body h3, body p {
+  padding: 0;
+  margin: 0;
+}
+
+.contentHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentHolder .rightCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentHolder .leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentHolder .app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
+}
+
+.contentHolder {
+  width: 70%;
+}
+.contentHolder .rightCol {
+  width: 30%;
+}
+.contentHolder .leftCol {
+  width: 70%;
+}
+
+body {
+  font-size: 2vw;
+}
+
+.app {
+  width: 100%;
+}
+
+#addCard {
+  background-color: #D1C6AD;
+  color: #0B1D51;
+  border-radius: 20%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 60%;
+  height: 30px;
+  font-size: 2vw;
 }
 
 /*# sourceMappingURL=styles.css.map */

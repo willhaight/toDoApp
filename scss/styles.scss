@@ -1,4 +1,87 @@
-body {
-    background-color:black;
-    color:white;
+//setup
+
+    $tan: #D1C6AD;
+    $dTan: #978d83;
+    $pink: #A1869E;
+    $lBlue: #797596;
+    $dBlue: #0B1D51;
+    $black: #242222;
+    body {
+        background-color:$tan;
+        padding:0;
+        margin:0;
+        }
+    @mixin flex{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+//backgrounds and colors
+
+        .contentHolder {
+            background-color:$dTan;
+            color:$dBlue;
+            .rightCol{
+                background-color: $pink;
+                color:$dBlue;
+            }
+            .leftCol{
+                background-color: $lBlue;
+                color:$dBlue;
+            }
+        }
+
+//position
+        body{
+            @include flex;
+            h1, h2, h3, p {
+                padding:0;
+                margin:0;
+            }
+        }
+        .contentHolder {
+            @include flex;
+
+            .rightCol{
+                @include flex;
+            }
+            .leftCol{
+                @include flex;
+            }
+            .app {
+                @include flex;
+                flex-direction: row;
+            }
+        }
+
+//Sizing
+
+        .contentHolder{
+            width:70%;
+            .rightCol {
+                width:30%;
+            }
+            .leftCol {
+                width:70%;
+            }
+        }
+        body {
+            font-size:2vw;
+        }
+        .app {
+            width:100%;
+        }
+
+//button
+
+#addCard {
+    background-color: $tan;
+    color:$dBlue;
+    border-radius: 20%;
+    margin-top:15px;
+    margin-bottom:15px;
+    width:60%;
+    height:30px;
+    font-size: 2vw;
+}
