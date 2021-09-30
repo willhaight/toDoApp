@@ -4,7 +4,8 @@
     $dTan: #978d83;
     $pink: #A1869E;
     $lBlue: #797596;
-    $dBlue: #0B1D51;
+    $dBlue: #071231;
+    $bluePress: #5b5970;;
     $black: #242222;
     body {
         background-color:$tan;
@@ -34,6 +35,16 @@
                 border: 2px solid $dBlue;
             }
         }
+        #heading{
+            border-bottom: 2px solid $dBlue;
+        }
+        #cardOp div {
+            border:2px solid $dBlue;
+            background-color: $lBlue;
+        }
+        #cardOp div:hover {
+            background-color: $bluePress;
+        }
 
 //position
         body{
@@ -57,6 +68,30 @@
                 flex-direction: row;
             }
         }
+        #heading {
+            @include flex;
+            flex-direction: row;
+            justify-content: center;
+            padding-bottom: 15px;
+            padding-top:15px;
+            i{
+                padding-left:10px;
+                padding-right:10px;
+            }
+        }
+        #cardName {
+            margin-top:10px;
+        }
+        #cardOp{
+            @include flex;
+            
+            i {
+                padding-right:10px;
+            }
+            div {
+                padding:3px 3px 3px 3px;
+            }
+        }
 
 //Sizing
 
@@ -74,6 +109,12 @@
         }
         .app {
             width:100%;
+        }
+        #heading{
+            width:100%;
+        }
+        #cardName{
+            width:50%;
         }
 
 //button
