@@ -64,8 +64,7 @@
                 @include flex;
             }
             .app {
-                @include flex;
-                flex-direction: row;
+                display:flex;
             }
         }
         #heading {
@@ -99,6 +98,7 @@
             width:70%;
             .rightCol {
                 width:70%;
+                flex: 1;
             }
             .leftCol {
                 width:30%;
@@ -126,6 +126,5 @@
     margin-top:15px;
     margin-bottom:15px;
     width:60%;
-    height:30px;
     font-size: 2vw;
 }

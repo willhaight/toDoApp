@@ -60,9 +60,6 @@ body h1, body h2, body h3, body p {
 }
 .contentHolder .app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-direction: row;
 }
 
 #heading {
@@ -100,6 +97,7 @@ body h1, body h2, body h3, body p {
 }
 .contentHolder .rightCol {
   width: 70%;
+  flex: 1;
 }
 .contentHolder .leftCol {
   width: 30%;
@@ -128,7 +126,6 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   width: 60%;
-  height: 30px;
   font-size: 2vw;
 }
 
