@@ -63,19 +63,21 @@ function loadUp(){
 for(let i = 0; i < currentCards.length; i++){
     currentCards[i].onclick = function(){
         dataNum = i;
-        currentCards[i].classList.add('selected');
         selection();
     }
 
     //deleting the lists
 
     document.getElementsByClassName('delete')[i].onclick = function() {
-        listsContainer.innerHTML = null;
-        currentCards = [];
+        currentCards[i].outerHTML = null;
+        currentCards.splice(i, 1)
         savetoStorage();
+        loadUp();
     }
 }}
 loadUp();
+
+
 
 function selection() {
     cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>' +
@@ -87,12 +89,22 @@ function selection() {
 
     document.getElementById('submitData').onclick = function(){
         const listData = document.createElement('div');
-        listData.innerHTML = document.getElementById('listName').value;
+        listData.classList.add('data')
+        listData.innerHTML = document.getElementById('listName').value + '<input type=button value="delete" class="dataDelete">';
         cardData.appendChild(listData);
+        storedListData.push(listData);
         document.getElementById('listName').value = null;
         dataStorageSave();
         
     }
-    currentCards[dataNum].classList.remove('selected');
+    for(let i = 0; i < document.getElementsByClassName('data').length; i++){
+        document.getElementsByClassName('dataDelete')[i].onclick = function(){
+        document.getElementsByClassName('data')[i].outerHTML = null;
+        dataStorageSave();
+        selection();
+        if(document.getElementsByClassName('data').length == 0){
+            localStorage.removeItem('cardData' + dataNum);
+        }
+    }}
 
 }
