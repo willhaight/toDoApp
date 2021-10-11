@@ -78,7 +78,21 @@ for(let i = 0; i < currentCards.length; i++){
 loadUp();
 
 function selection() {
-    cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>';
+    cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>' +
+    '<input type=text id="listName"> <input type=button value="Add List Item" id="submitData">';
+    if(localStorage.getItem('cardData' + dataNum)){
+        cardData.innerHTML = localStorage.getItem('cardData' + dataNum);
+    }
+
+
+    document.getElementById('submitData').onclick = function(){
+        const listData = document.createElement('div');
+        listData.innerHTML = document.getElementById('listName').value;
+        cardData.appendChild(listData);
+        document.getElementById('listName').value = null;
+        dataStorageSave();
+        
+    }
     currentCards[dataNum].classList.remove('selected');
 
 }
