@@ -140,4 +140,35 @@ body {
   font-size: 2vw;
 }
 
+.delete, .dataDelete {
+  background-color: #e01a1a;
+  border-radius: 25%;
+  margin-left: 5%;
+}
+
+#cardData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#cardData #submitData {
+  background-color: #D1C6AD;
+  color: #071231;
+  border-radius: 20%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 20%;
+  font-size: 1vw;
+}
+
+.card, .data {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.data {
+  padding-left: 15%;
+}
+
 /*# sourceMappingURL=styles.css.map */

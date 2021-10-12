@@ -95,7 +95,7 @@ function checkDelete(deleteNum){
 function selection() {
     console.log('genereated')
     cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>' +
-    '<input type=text id="listName"> <input type=button value="Add List Item" id="submitData">';
+    '<input type=text id="listName" placeholder="Add Item"> <input type=button value="Add List Item" id="submitData">';
     if(localStorage.getItem('cardData' + dataNum)){
         cardData.innerHTML = localStorage.getItem('cardData' + dataNum);
     }else{
@@ -130,5 +130,5 @@ function selection() {
 }
 
 function showDelete(check){
-    document.getElementsByClassName('delete')[check].style.display = 'block';
+    document.getElementsByClassName('delete')[check].style.display = 'inline';
 }
