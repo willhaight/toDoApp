@@ -100,7 +100,7 @@ function selection() {
         dataStorageSave();
     }
     
-
+//delete button
     for(let i = 0; i < document.getElementsByClassName('data').length; i++){
         document.getElementsByClassName('dataDelete')[i].onclick = function(){
         document.getElementsByClassName('data')[i].outerHTML = null;
@@ -112,11 +112,20 @@ function selection() {
     }}
 
 
+            //mark button
+    for(let i = 0; i < document.getElementsByClassName('data').length; i++){
+        document.getElementsByClassName('mark')[i].onclick = function(){
+        document.getElementsByClassName('data')[i].style.textDecoration = "line-through";
+        dataStorageSave();
+        selection();
+    }}
+
+
     document.getElementById('submitData').onclick = function(){
         const listData = document.createElement('div');
         listData.classList.add('data');
         listData.contentEditable = "true";
-        listData.innerHTML = document.getElementById('listName').value + '<input type=button value="delete" class="dataDelete">';
+        listData.innerHTML = '<input type=button value="Mark" class="mark">' + document.getElementById('listName').value + '<input type=button value="delete" class="dataDelete">';
         cardData.appendChild(listData);
         storedListData.push(listData);
         document.getElementById('listName').value = null;

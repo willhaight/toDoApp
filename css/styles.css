@@ -184,8 +184,10 @@ body {
   justify-content: center;
 }
 
-.data {
-  padding-left: 15%;
+.data .mark {
+  background-color: #67ce67;
+  border-radius: 25%;
+  margin-right: 5%;
 }
 
 @media only screen and (max-width: 800px) {
