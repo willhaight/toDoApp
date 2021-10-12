@@ -146,6 +146,20 @@ body {
   margin-left: 5%;
 }
 
+#sep {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#saveChanges {
+  background-color: green;
+  height: 20px;
+  border-radius: 25%;
+  margin-top: 17px;
+  margin-left: 10px;
+}
+
 #cardData {
   display: flex;
   flex-direction: column;
