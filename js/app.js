@@ -84,7 +84,6 @@ loadUp();
 
 function checkDelete(deleteNum){
     if(localStorage.getItem('cardData' + deleteNum) == "deleted" || document.getElementsByClassName('data').length == 0){
-        console.log('deleted')
         currentCards[deleteNum].style.display = 'none';
     }else{
         alert('please empty the list before deleting the container')
@@ -93,7 +92,6 @@ function checkDelete(deleteNum){
 
 
 function selection() {
-    console.log('genereated')
     cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>' +
     '<input type=text id="listName" placeholder="Add Item"> <input type=button value="Add List Item" id="submitData">';
     if(localStorage.getItem('cardData' + dataNum)){
