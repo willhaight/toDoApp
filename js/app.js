@@ -79,9 +79,10 @@ for(let i = 0; i < currentCards.length; i++){
 loadUp();
 
 function checkDelete(deleteNum){
-    if(localStorage.getItem('cardData' + deleteNum) == null){
-        currentCards[deleteNum].outerHTML = null;
-        currentCards.splice(deleteNum, 1);
+    if(localStorage.getItem('cardData' + deleteNum) == "deleted" || document.getElementsByClassName('data').length == 0){
+        currentCards[deleteNum].style.display = 'none';
+    }else{
+        alert('please empty the list before deleting the container')
     }
 }
 
@@ -91,6 +92,8 @@ function selection() {
     '<input type=text id="listName"> <input type=button value="Add List Item" id="submitData">';
     if(localStorage.getItem('cardData' + dataNum)){
         cardData.innerHTML = localStorage.getItem('cardData' + dataNum);
+    }else{
+        dataStorageSave();
     }
 
 
@@ -100,9 +103,10 @@ function selection() {
         dataStorageSave();
         selection();
         if(document.getElementsByClassName('data').length == 0){
-            localStorage.removeItem('cardData' + dataNum);
+            localStorage.setItem('cardData' + dataNum, "deleted");
         }
     }}
+
 
     document.getElementById('submitData').onclick = function(){
         const listData = document.createElement('div');
