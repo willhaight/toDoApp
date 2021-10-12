@@ -179,7 +179,7 @@ body {
     font-size: 3vw;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .card {
     display: flex;
     flex-direction: column;
