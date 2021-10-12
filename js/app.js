@@ -68,16 +68,22 @@ for(let i = 0; i < currentCards.length; i++){
     }
 
     //deleting the lists
-
     document.getElementsByClassName('delete')[i].onclick = function() {
-        currentCards[i].outerHTML = null;
-        currentCards.splice(i, 1)
+        checkDelete(i);
         savetoStorage();
         loadUp();
     }
+
+
 }}
 loadUp();
 
+function checkDelete(deleteNum){
+    if(localStorage.getItem('cardData' + deleteNum) == null){
+        currentCards[deleteNum].outerHTML = null;
+        currentCards.splice(deleteNum, 1);
+    }
+}
 
 
 function selection() {
