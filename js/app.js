@@ -13,32 +13,32 @@ let cardData = document.getElementById('cardData');
 
 //creating a card
 
-createCard.onclick = function(){
-cardNum.forEach(list => {
-const listElement = document.createElement('div')
-listElement.classList.add('card')
-listElement.innerHTML = '<i class="fas fa-sticky-note"></i>' + recCardName.value + '<input style="display:none;" type="button" value="delete" class="delete">';
-listsContainer.appendChild(listElement);
-currentCards.push(listElement);
-savetoStorage();
-loadUp();
-})
-recCardName.value = "";
+createCard.onclick = function () {
+    cardNum.forEach(list => {
+        const listElement = document.createElement('div')
+        listElement.classList.add('card')
+        listElement.innerHTML = '<i class="fas fa-sticky-note"></i>' + recCardName.value + '<input style="display:none;" type="button" value="delete" class="delete">';
+        listsContainer.appendChild(listElement);
+        currentCards.push(listElement);
+        savetoStorage();
+        loadUp();
+    })
+    recCardName.value = "";
 }
 
 //Local Storage
 
-if(localStorage.getItem('cards')){
+if (localStorage.getItem('cards')) {
     listsContainer.innerHTML = localStorage.getItem('cards');
 }
 
 
-for(let i = 0; i < document.getElementsByClassName('card')["length"]; i++){
+for (let i = 0; i < document.getElementsByClassName('card')["length"]; i++) {
     currentCards.push(document.getElementsByClassName('card')[i])
-    }
+}
 
 
-function savetoStorage(){
+function savetoStorage() {
     localStorage.setItem('cards', listsContainer.innerHTML);
 }
 
@@ -52,40 +52,41 @@ let storedListData = [];
 let dataNum = 0;
 
 
-function dataStorageSave(){
-localStorage.setItem('cardData' + dataNum, cardData.innerHTML);
+function dataStorageSave() {
+    localStorage.setItem('cardData' + dataNum, cardData.innerHTML);
 }
 
 //creating the list data functions and selecting a container
 
 
-function loadUp(){
+function loadUp() {
     dataNum = 0;
-for(let i = 0; i < currentCards.length; i++){
-    currentCards[i].onclick = function(){
-        for(let i = 0; i < document.getElementsByClassName('delete').length;i++){
-            document.getElementsByClassName('delete')[i].style.display = "none";
+    for (let i = 0; i < currentCards.length; i++) {
+        currentCards[i].onclick = function () {
+            for (let i = 0; i < document.getElementsByClassName('delete').length; i++) {
+                document.getElementsByClassName('delete')[i].style.display = "none";
+            }
+            dataNum = i;
+            selection();
+            showDelete(i);
         }
-        dataNum = i;
-        selection();
-        showDelete(i);
+
+        //deleting the lists
+        document.getElementsByClassName('delete')[i].onclick = function () {
+            checkDelete(i);
+            savetoStorage();
+            loadUp();
+        }
+
+
     }
-
-    //deleting the lists
-    document.getElementsByClassName('delete')[i].onclick = function() {
-        checkDelete(i);
-        savetoStorage();
-        loadUp();
-    }
-
-
-}}
+}
 loadUp();
 
-function checkDelete(deleteNum){
-    if(localStorage.getItem('cardData' + deleteNum) == "deleted" || document.getElementsByClassName('data').length == 0){
+function checkDelete(deleteNum) {
+    if (localStorage.getItem('cardData' + deleteNum) == "deleted" || document.getElementsByClassName('data').length == 0) {
         currentCards[deleteNum].style.display = 'none';
-    }else{
+    } else {
         alert('please empty the list before deleting the container')
     }
 }
@@ -93,35 +94,37 @@ function checkDelete(deleteNum){
 
 function selection() {
     cardData.innerHTML = '<h1>' + currentCards[dataNum].innerText + '</h1>' +
-    '<input type=text id="listName" placeholder="Add Item"> <div id="sep"><input type=button value="Add List Item" id="submitData"><input type=button value="Save Changes" id="saveChanges"></div>';
-    if(localStorage.getItem('cardData' + dataNum)){
+        '<input type=text id="listName" placeholder="Add Item"> <div id="sep"><input type=button value="Add List Item" id="submitData"><input type=button value="Save Changes" id="saveChanges"></div>';
+    if (localStorage.getItem('cardData' + dataNum)) {
         cardData.innerHTML = localStorage.getItem('cardData' + dataNum);
-    }else{
+    } else {
         dataStorageSave();
     }
-    
-//delete button
-    for(let i = 0; i < document.getElementsByClassName('data').length; i++){
-        document.getElementsByClassName('dataDelete')[i].onclick = function(){
-        document.getElementsByClassName('data')[i].outerHTML = null;
-        dataStorageSave();
-        selection();
-        if(document.getElementsByClassName('data').length == 0){
-            localStorage.setItem('cardData' + dataNum, "deleted");
+
+    //delete button
+    for (let i = 0; i < document.getElementsByClassName('data').length; i++) {
+        document.getElementsByClassName('dataDelete')[i].onclick = function () {
+            document.getElementsByClassName('data')[i].outerHTML = null;
+            dataStorageSave();
+            selection();
+            if (document.getElementsByClassName('data').length == 0) {
+                localStorage.setItem('cardData' + dataNum, `<input type=text id="listName"<div id="sep"><input type="button" value="Add List Item" id="submitData"><input type="button" value="Save Changes" id="saveChanges"></div>`);
+            }
         }
-    }}
+    }
 
 
-            //mark button
-    for(let i = 0; i < document.getElementsByClassName('data').length; i++){
-        document.getElementsByClassName('mark')[i].onclick = function(){
-        document.getElementsByClassName('data')[i].style.textDecoration = "line-through";
-        dataStorageSave();
-        selection();
-    }}
+    //mark button
+    for (let i = 0; i < document.getElementsByClassName('data').length; i++) {
+        document.getElementsByClassName('mark')[i].onclick = function () {
+            document.getElementsByClassName('data')[i].style.textDecoration = "line-through";
+            dataStorageSave();
+            selection();
+        }
+    }
 
 
-    document.getElementById('submitData').onclick = function(){
+    document.getElementById('submitData').onclick = function () {
         const listData = document.createElement('div');
         listData.classList.add('data');
         listData.contentEditable = "true";
@@ -131,17 +134,17 @@ function selection() {
         document.getElementById('listName').value = null;
         dataStorageSave();
         selection();
-        
+
     }
 
-    document.getElementById('saveChanges').onclick = function(){
+    document.getElementById('saveChanges').onclick = function () {
         dataStorageSave();
     }
 
 }
 
 
-function showDelete(check){
+function showDelete(check) {
     document.getElementsByClassName('delete')[check].style.display = 'inline';
 }
 
