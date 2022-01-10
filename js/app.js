@@ -117,7 +117,7 @@ function selection() {
     //mark button
     for (let i = 0; i < document.getElementsByClassName('data').length; i++) {
         document.getElementsByClassName('mark')[i].onclick = function () {
-            document.getElementsByClassName('data')[i].style.textDecoration = "line-through";
+            document.getElementsByClassName('data')[i].style.fontWeight = "bold";
             dataStorageSave();
             selection();
         }
