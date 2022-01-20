@@ -1,12 +1,12 @@
 //setup
 
-    $tan: #D1C6AD;
-    $dTan: #978d83;
-    $pink: #A1869E;
-    $lBlue: #797596;
+    $tan: #040404;
+    $dTan: #a7a7a7;
+    $pink: #8e5c63;
+    $lBlue: #8e5c63;
     $dBlue: #071231;
     $bluePress: #5b5970;;
-    $black: #242222;
+    $black: #d3d3d3;
     body {
         background-color:$tan;
         padding:0;
@@ -44,7 +44,7 @@
         }
         #cardOp div {
             border:2px solid $dBlue;
-            background-color: $lBlue;
+            background-color: rgb(126, 61, 61);
         }
         #cardOp div:hover {
             background-color: $bluePress;
@@ -132,7 +132,7 @@
 //button
 
 #addCard {
-    background-color: $tan;
+    background-color: $dTan;
     color:$dBlue;
     border-radius: 20%;
     margin-top:15px;
@@ -143,7 +143,7 @@
 
 //delete buttons
 .delete, .dataDelete{
-    background-color:rgb(224, 26, 26);
+    background-color:rgb(130, 20, 20);
     border-radius: 25%;
     margin-left:5%;
 }
@@ -154,7 +154,7 @@
 }
 
 #saveChanges{
-    background-color: green;
+    background-color: rgb(39, 177, 39);
     height: 20px;
     border-radius: 25%;
     margin-top:17px;
@@ -170,7 +170,7 @@
         margin-bottom: 25px;
     }
     #submitData{
-        background-color: $tan;
+        background-color: $dTan;
     color:$dBlue;
     border-radius: 20%;
     margin-top:15px;
@@ -186,7 +186,7 @@
 }
 .data {
     .mark{
-        background-color: rgb(103, 206, 103);
+        background-color: rgb(85, 135, 85);
         border-radius: 25%;
         margin-right:5%;
     }
