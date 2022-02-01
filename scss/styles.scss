@@ -19,7 +19,18 @@
     }
 
 //backgrounds and colors
-
+.alert{
+    color:white;
+    font-size: 2vw;
+    border: 3px solid white;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+.alert a{
+    color:white;
+    font-weight: bold;
+    text-decoration: none;
+}
         .contentHolder {
             background-color:$dTan;
             color:$dBlue;
